@@ -1,0 +1,113 @@
+{% extends "colaboradores/base_intranet.html" %}
+{% load i18n admin_modify adminmedia %}
+{% block extrahead %}{{ block.super }}
+{{ media }}
+  <link rel='StyleSheet' type='text/css' href='{% admin_media_prefix %}mapquery/css/style.css'/>
+  <link rel="stylesheet" href="{% admin_media_prefix %}mapquery/lib/jquery/ui/jquery-ui.css" type="text/css" media="all" />
+  <script src="{% admin_media_prefix %}mapquery/lib/openlayers/OpenLayers.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/jquery-1.4.4.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/ui/jquery-ui.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/jquery.tmpl.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/src/jquery.mapquery.core.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/src/jquery.mapquery.mqFeatureInfo.js" type="text/javascript"></script>
+
+
+  <script type="text/javascript">
+        var map, layer;
+
+        function init(){
+            map = new OpenLayers.Map('map');
+            layer = new OpenLayers.Layer.WMS( "OpenLayers WMS", 
+                "http://vmap0.tiles.osgeo.org/wms/vmap0", {layers: 'basic'} );
+                
+            map.addLayer(layer);
+
+            var newl = new OpenLayers.Layer.Text( "text", {location: "{% admin_media_prefix %}mapquery/data/textfile.txt"} );
+            map.addLayer(newl);
+
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            map.zoomToMaxExtent();
+            
+            var ol_wms = new OpenLayers.Layer.WMS( "OpenLayers WMS",
+            "http://vmap0.tiles.osgeo.org/wms/vmap0?", {layers: 'basic'} );
+            var jpl_wms = new OpenLayers.Layer.WMS( "NASA Global Mosaic",
+            "http://t1.hypercube.telascience.org/cgi-bin/landsat7",
+            {layers: "landsat7"});
+            jpl_wms.setVisibility(false);
+            map.addLayers([ol_wms, jpl_wms]);
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            
+            // map.setCenter(new OpenLayers.LonLat(0, 0), 0);
+            map.zoomToMaxExtent();
+            var click = new OpenLayers.Control.Click();
+            map.addControl(click);
+            click.activate();
+        }
+  </script>
+  <script type="text/javascript" language="javascript" charset="utf-8">
+    OpenLayers.Control.Click = OpenLayers.Class(OpenLayers.Control, {
+        defaultHandlerOptions: {
+            'single': true,
+            'double': false,
+            'pixelTolerance': 0,
+            'stopSingle': false,
+            'stopDouble': false
+        },
+        initialize: function(options) {
+            this.handlerOptions = OpenLayers.Util.extend(
+            {}, this.defaultHandlerOptions
+        );
+        OpenLayers.Control.prototype.initialize.apply(
+            this, arguments
+        );
+        this.handler = new OpenLayers.Handler.Click(
+            this, {
+            'click': this.trigger
+            }, this.handlerOptions
+            );
+        },
+        trigger: function(e) {
+            var lonlat = map.getLonLatFromViewPortPx(e.xy);
+            $('#id_cordenadalat').val(lonlat.lat);
+            $('#id_cordenadalon').val(lonlat.lon);
+            }
+        });
+  </script>
+{% endblock %}
+
+{% block bodyclass %}chang  e-list{% endblock %}
+{% block breadcrumbs %}
+{% endblock %}
+{% block title %} {% trans 'Construye' %} {% endblock %}
+{% block content %}
+  
+  <table border="0" cellspacing="0" cellpadding="0" width="700">
+  <tr><td><div id="map" class="map"></div>
+  <div id="featureinfo" class="mq-widget"></div></td>
+  <td>
+  <div id="formulario">
+    <form action="/nueva_sugerencia/" method="post">{% csrf_token %}
+        <p><label for="id_cordenadalat">Lati:</label><input id="id_cordenadalat" type="text" name="subject" maxlength="20" readonly /></p>
+        <p><label for="id_cordenadalon">Long:</label><input type="text" name="cordenadalon" id="id_cordenadalon" readonly /></p>
+        <p><label for="id_titulo">Titulo:</label><input type="text" name="titulo" id="id_titulo" /></p>
+        <p><label for="id_descripcion">Descripci&oacute;n:</label><input type="text" name="descripcion" id="id_descripcion" /></p>
+        <input type="submit" value="Enviar" />
+    </form>
+    <br />
+    <img src="{% admin_media_prefix %}img/me-gusta.jpg" width="100" />
+    <br />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style ">
+    <a class="addthis_button_preferred_1"></a>
+    <a class="addthis_button_preferred_2"></a>
+    <a class="addthis_button_preferred_3"></a>
+    <a class="addthis_button_preferred_4"></a>
+    <a class="addthis_button_compact"></a>
+    <a class="addthis_counter addthis_bubble_style"></a>
+    </div>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4edba2ce11b2db6b"></script>
+    <!-- AddThis Button END -->
+    </td></tr>
+  </div>
+  </table>
+{% endblock %}

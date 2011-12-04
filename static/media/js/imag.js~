@@ -1,0 +1,13 @@
+$(document).ready(function() {
+
+    var update_img2011 = function() {
+        event.preventDefault();
+        $("#img2011").slideToggle();
+    };
+    
+    $("#ver2010").click(function () {
+        update_img2011();
+    });
+
+        
+    });

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es" >
+<head>
+    <title> Construye.pe</title>
+    <!-- Meta Tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="udl.edu.pe" />
+
+{% load adminmedia %}
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% admin_media_prefix %}css/style.css{% endblock %}" />
+
+<!-- JavaScript -->
+<script type="text/javascript" src="{% admin_media_prefix %}login_colaboradores/scripts/wufoo.js"></script>
+</head>
+
+<body>
+    <div id="contain">
+        <header>
+            <div class="header">
+                <div class="signinbox">
+                    <span>
+                    ¿Aún no te registras? 
+                    <a href="#" >Registrate!.</a>
+                    </span>
+                </div>
+                
+                <div class="mainnav">
+                    <a href="http://construyendo.pe"><img src="{% admin_media_prefix %}img/logo2.png" alt="construyendo"></a>
+                </div>
+                    
+                <div class="buttonmenu" align="center">
+                    <ul class="top">
+                        <li><a class="btn prod" href="/">Home</a></li>
+                        <li><a class="btn prod" href="/colaborador/mapas/ver_mapa/">Estadísticas</a></li>
+                        <li><a class="btn prod" href="/colaborador/mapas/sugerencia/">Sugiere un proyecto</a></li>
+                        <li><a class="btn prod" href="/colaborador/como/">¿Como funciona?</a></li>
+                        
+                    </ul>
+                </div>
+                <br>
+                <p class="headhome">Login</p>
+            </div>
+        </header>
+    <div class="createform">
+        <h2> </h2>
+        <div id="newbox">
+            <ul>
+                <li>Por favor ingresa tus datos.</li>                
+            </ul>
+            
+            <form id="form27" name="form27" class="wufoo  page" autocomplete="off" enctype="multipart/form-data" method="post" action="#public">{% csrf_token %}
+                <p>
+                    <label id="title1" for="User">Usuario</label><input id="Field1" name="User" type="text" class="field text large" value="" tabindex="1"/>
+                    {% if form.User.errors %}
+                        {% for error in form.User.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </p>
+                <p>
+                    <label id="title2" for="Password">Password</label><input id="Field2" name="Password" type="password" class="field text large" value="" maxlength="30" tabindex="2"/>
+                    {% if form.Password.errors %}
+                        {% for error in form.Password.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+                </p>
+                <p>
+                    <input id="saveForm" name="saveForm" class="btn add" value="Entrar" type="submit" />
+                </p>
+                <p class="tos">Al dar Click se aceptan los términos del servicio.</p>
+            </form>
+        </div>
+    
+    <footer>
+        <div class="footer" align="center">
+            <a href="#"><img class="logo" src="{% admin_media_prefix %}img/logo3.png" alt="contruyendo"></a>
+            <ul class="top">
+                <li><a class="btn prod" href="/">Home</a></li>
+                <li><a class="btn prod" href="/colaborador/mapas/ver_mapa/">Estadísticas</a></li>
+                <li><a class="btn prod" href="/colaborador/mapas/sugerencia/">Sugiere un proyecto</a></li>
+                <li><a class="btn prod" href="/colaborador/como/">¿Como funciona?</a></li>
+                
+            </ul>
+        </div>
+        <div class="footer2" align="center">
+            <p> Aplicación para DAL 2011.</p>
+            <br>
+            <img src="{% admin_media_prefix %}img/dal.png" alt="dal">                
+        </div>
+    </footer>
+
+</body></html>

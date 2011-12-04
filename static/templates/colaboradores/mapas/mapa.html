@@ -1,0 +1,148 @@
+{% extends "colaboradores/base_intranet.html" %}
+{% load i18n admin_modify adminmedia %}
+{% block extrahead %}{{ block.super }}
+{{ media }}
+  <link rel='StyleSheet' type='text/css' href='{% admin_media_prefix %}mapquery/css/style.css'/>
+  <link rel="stylesheet" href="{% admin_media_prefix %}mapquery/lib/jquery/ui/jquery-ui.css" type="text/css" media="all" />
+  <script src="{% admin_media_prefix %}mapquery/lib/openlayers/OpenLayers.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/jquery-1.4.4.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/ui/jquery-ui.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/lib/jquery/jquery.tmpl.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/src/jquery.mapquery.core.js" type="text/javascript"></script>
+  <script src="{% admin_media_prefix %}mapquery/src/jquery.mapquery.mqFeatureInfo.js" type="text/javascript"></script>
+  
+  
+
+{% comment %}
+  <link rel="stylesheet" href="{% admin_media_prefix %}rgraph/css/website.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="{% admin_media_prefix %}rgraph/libraries/RGraph.common.core.js" ></script>
+  <script type="text/javascript" src="{% admin_media_prefix %}rgraph/libraries/RGraph.common.tooltips.js" ></script>
+  <script type="text/javascript" src="{% admin_media_prefix %}rgraph/libraries/RGraph.common.effects.js" ></script>
+  <script type="text/javascript" src="{% admin_media_prefix %}rgraph/libraries/RGraph.pie.js" ></script>
+  <script type="text/javascript" src="{% admin_media_prefix %}rgraph/libraries/RGraph.common.key.js" ></script>
+  {% endcomment %}
+
+<style type="text/css">
+body {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #666666; 
+}
+
+a{color:#993300; text-decoration:none;}
+
+#img2011, #img2010, #img2009, #img2008, #img2007 {
+        width:100%;
+        display: none;
+        padding:5px;
+        border:2px solid #FADDA9;
+        background-color:#FDF4E1;
+}
+#ver2011, #ver2010, #ver2009, #ver2008, #ver2007 {
+        display:block;
+        width:100%;
+        padding:5px;
+        border:2px solid #D0E8F4;
+        background-color:#ECF8FD;
+}
+</style>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+        // no data arrives from couchdb -> geocouch does not send back formatted json data
+
+    //initialise mapquery with an Bing Aerial layer
+    var map = $('#map').mapQuery({
+//         maxExtent:[-180,-90,180,90], //Since this is a 4326 map, you need to set a different maxExtent
+//         projection:'EPSG:4326', //Projection of your map (WGS84 in this case)
+        layers:[{ //layers to add to the map
+                type:'wms',
+                url:'http://vmap0.tiles.osgeo.org/wms/vmap0',
+                layers:'basic'
+            },{
+                type: 'JSON',
+                url: '{% admin_media_prefix %}mapquery/data/reservate3.json',
+                //url: 'http://localhost:5984/ethiopia_reservate/_design/geo/_list/geojson/all?type=geojson',
+                label: 'reservate'
+            },
+            {
+            type:'osm'  //add a layer of the type osm (OpenStreetMap)
+            }]
+        });
+    map.data('mapQuery').center({position:[-72,-9]});
+    map.data('mapQuery').center({zoom:5});
+    
+
+    $('#featureinfo').mqFeatureInfo({
+        map: $('#map'),
+        contents: function(feature) {
+            var html = '<h2>' + feature.data.properties.GISNAME + '</h2>';
+//             if (feature.data.properties.imagen) {
+//                 html += '<img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen + '" alt="Registrate en nuestra web">';
+//             }
+            if (feature.data.properties.imagen2011) {
+                html += '<div id="img2011"><img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen2011 + '" alt="img01"></div>'
+                }
+            if (feature.data.properties.imagen2010) {
+                html += '<div id="img2010"><img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen2010 + '" alt="img02"></div>'
+                }
+            if (feature.data.properties.imagen2009) {
+                html += '<div id="img2009"><img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen2009 + '" alt="img03"></div>'
+                }
+            if (feature.data.properties.imagen2008) {
+                html += '<div id="img2008"><img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen2008 + '" alt="img04"></div>'
+                }
+            if (feature.data.properties.imagen2007) {
+                html += '<div id="img2007"><img src="{% admin_media_prefix %}/img/' + feature.data.properties.imagen2007 + '" alt="img05"></div>'
+                }
+            return html;
+        }
+    });
+    
+    });
+  </script>
+  
+{% endblock %}
+{% block bodyclass %}change-list{% endblock %}
+{% block breadcrumbs %}
+{% endblock %}
+{% block title %} {% trans 'Construye' %} {% endblock %}
+{% block content %}
+  
+  <div id="map" class="map"></div>
+  <div id="featureinfo" class="mq-widget"></div>
+  
+<script>
+    $(function(){
+        $("#ver2011").click(function(event) {
+        event.preventDefault();
+        $("#img2011").slideToggle();
+    });
+        $("#ver2010").click(function(event) {
+        event.preventDefault();
+        $("#img2010").slideToggle();
+    });
+        $("#ver2009").click(function(event) {
+            event.preventDefault();
+            $("#img2009").slideToggle();
+
+    });
+        $("#ver2008").click(function(event) {
+            event.preventDefault();
+            $("#img2008").slideToggle();
+
+    });
+        $("#ver2007").click(function(event) {
+            event.preventDefault();
+            $("#img2007").slideToggle();
+
+    });
+    })
+</script>
+
+<a href="#" id="ver2011">Ver Primer Reporte Estadístico</a>
+<a href="#" id="ver2010" >Ver Segundo Reporte Estadístico</a>
+<a href="#" id="ver2009" >Ver Tercer Reporte Estadístico</a>
+<a href="#" id="ver2008" >Ver Cuarto Reporte Estadístico</a>
+<a href="#" id="ver2007" >Ver Quinto Reporte Estadístico</a>
+{% endblock %}

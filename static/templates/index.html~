@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es" >
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> Construye.pe</title>
+    <link rel="shortcut icon" href="#/favicon.ico">
+    {% load adminmedia %}
+    <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% admin_media_prefix %}css/style.css{% endblock %}" />
+    <meta name="generator" content="Bluefish 2.0.3" >
+    
+</head>
+    <body>
+        <div id="contain">
+            <header>
+                <div class="header">
+                    <div class="signinbox">
+                    <span>
+                    <a href="colaborador/login/" >Ingresa a tu cuenta</a> | ¿Aún no te registras? 
+                    <a href="#" >Registrate!.</a>
+                    </span>
+                    </div>
+                
+                    <div class="mainnav">
+                        <a href="http://construyendo.pe"><img src="{% admin_media_prefix %}img/logo2.png" alt="construyendo"></a>
+                    </div>
+                        
+                <div class="buttonmenu" align="center">
+                    <ul class="top">
+                        <li><a class="btn prod" href="/">Home</a></li>
+                        <li><a class="btn prod" href="colaborador/mapas/ver_mapa/">Estadísticas</a></li>
+                        <li><a class="btn prod" href="colaborador/mapas/sugerencia/">Sugiere un proyecto</a></li>
+                        <li><a class="btn prod" href="colaborador/como/">¿Como funciona?</a></li>
+                        
+                    </ul>
+                </div>
+                                        
+                <br>
+             
+                <p class="headhome">Bienvenido</p>
+            
+                <p>Construye.pe es un proyecto que nace con la finalidad de mostrar los gastos públicos de un área esécífica de manera sencilla y de permitir a los pobladores
+                proponer a sus gobernantes proyectos de inversión públicos.
+            
+                La aplicación nace con la finalidad de ayudar a resolver la problemática de la falta de ideas en proyectos de inversión públicas y al mismo tiempo permite ser una ventana
+                de expresión de los pobladores de todas las regiones de Perú y de Latinoamérica que
+                </p>
+                <div class="subhero home" style="height:520px;">
+                    <a href=""><img src="{% admin_media_prefix %}img/latam.png" alt="Registrate en nuestra web"></a>
+                </div>
+    </div>
+        </header>
+
+<div class="main">     
+       
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+
+</blockquote>
+
+    <footer>
+        <div class="footer" align="center">
+            <a href="#"><img class="logo" src="{% admin_media_prefix %}img/logo3.png" alt="contruyendo"></a>
+            <ul class="top">
+                <li><a class="btn prod" href="/">Home</a></li>
+                <li><a class="btn prod" href="colaborador/mapas/ver_mapa/">Estadísticas</a></li>
+                <li><a class="btn prod" href="colaborador/mapas/sugerencia/">Sugiere un proyecto</a></li>
+                <li><a class="btn prod" href="colaborador/como/">¿Como funciona?</a></li>
+                
+            </ul>
+        </div>
+        <div class="footer2" align="center">
+            <p> Aplicación para DAL 2011.</p>
+            <br>
+            <img src="{% admin_media_prefix %}img/dal.png" alt="dal">                
+        </div>
+    </footer>
+            
+        </div>
+                
+</div>
+
+</div>    
+
+</body></html>

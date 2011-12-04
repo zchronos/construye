@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE|default:"en-us" }}" xml:lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
+<head>
+<title>{% block title %}{% endblock %}</title>
+{% load i18n admin_modify adminmedia %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% admin_media_prefix %}css/style.css{% endblock %}" />
+{% block extrahead %}{% endblock %}
+{% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
+</head>
+{% load i18n %}
+
+<body>
+{% if user.is_authenticated and user.is_active %}
+<div id="contain">
+    <header>
+        <div class="header">
+            <div class="signinbox">
+            <span>
+            <a href="colaborador/login/" >Ingresa a tu cuenta</a> | ¿Aún no te registras? 
+            <a href="#" >Registrate!.</a>
+            </span>
+        </div>
+            
+        <div class="mainnav">
+            <a href="http://construyendo.pe"><img src="{% admin_media_prefix %}img/logo2.png" alt="construyendo"></a>
+        </div>
+                    
+        <div class="buttonmenu" align="center">
+            <ul class="top">
+                <li><a class="btn prod" href="/">Home</a></li>
+                <li><a class="btn prod" href="colaborador/mapas/ver_mapa/">Estadísticas</a></li>
+                <li><a class="btn prod" href="#">Sugiere un proyecto</a></li>
+                <li><a class="btn prod" href="#">¿Como funciona?</a></li>
+                <li><a class="btn prod" href="#">¿Quiénes somos</a></li>
+            </ul>
+        </div>
+                                    
+        <br>
+            
+            <p class="headhome">Bienvenido</p>
+        
+            <p>Construye.pe es un proyecto que nace con la finalidad de mostrar los gastos públicos de un área esécífica de manera sencilla y de permitir a los pobladores
+            proponer a sus gobernantes proyectos de inversión públicos.
+        
+            La aplicación nace con la finalidad de ayudar a resolver la problemática de la falta de ideas en proyectos de inversión públicas y al mismo tiempo permite ser una ventana
+            de expresión de los pobladores de todas las regiones de Perú y de Latinoamérica que
+            </p>
+            <div class="subhero home" style="height:520px;">
+                <a href=""><img src="{% admin_media_prefix %}img/latam.png" alt="Registrate en nuestra web"></a>
+            </div>
+</div>
+    </header>
+    <div class="main"> 
+        <ul>
+            <li></li>
+        </ul>
+    </div>
+</div>
+{% endif %}
+</body>
+</html>

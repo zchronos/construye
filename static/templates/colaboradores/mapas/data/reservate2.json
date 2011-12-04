@@ -1,0 +1,39 @@
+{
+   "type":"FeatureCollection",
+   "features":[
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Polygon",
+            "coordinates":[
+               [
+                  [
+                     -77.064242,
+                     -12.056864
+                  ],
+                  [
+                     -77.064242,
+                     -12.057473
+                  ],
+                  [
+                     -77.063363,
+                     -12.057347
+                  ],
+                  [
+                     -77.063448,
+                     -12.056696
+                  ]
+               ]
+            ]
+         },
+         "properties":{
+            "_id":"7566d278fe9e2b1deac33ed0bf00516f",
+            "_rev":"2-f85fd93d692df4c3290ecd3e8e87ea3e",
+            "type":"Feature",
+            "properties":{
+               "GISNAME":"Esta parte de la carretera está en mal estado"
+            }
+         }
+      }
+   ]
+}

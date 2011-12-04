@@ -1,0 +1,160 @@
+{
+   "type":"FeatureCollection",
+   "features":[
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Polygon",
+            "coordinates":[
+               [
+                  [
+                     -77.673340, -10.854886
+                  ],
+                  [
+                     -77.321777, -10.746969
+                  ],
+                  [
+                     -76.915283, -10.487812
+                  ],
+                  [
+                     -76.365967, -11.738302
+                  ],
+                  [
+                     -75.640869, -12.415119
+                  ],
+                  [
+                     -75.816650, -12.961736
+                  ],
+                  [
+                     -76.333008, -13.154376
+                  ],
+                  [
+                     -76.915283, -12.232655
+                  ],
+                  [
+                     -77.475586, -11.232286
+                  ] 
+               ]
+            ]
+         },
+         "properties":{
+            "_id":"7566d278fe9e2b1deac33ed0bf00516f",
+            "_rev":"2-f85fd93d692df4c3290ecd3e8e87ea3e",
+            "type":"Feature",
+            "properties":{
+               "GISNAME":"Lima",
+               "descripcion":"<div id='mensaje'>Testing...</div>",
+               "imagen2011":"Ingreso_Lima_2011.png",
+               "imagen2010":"Ingreso_Lima_2010.png",
+               "imagen2009":"Ingreso_Lima_2009.png",
+               "imagen2008":"Lima1.png",
+               "imagen2007":"Lima2.png"
+            }
+         }
+      },
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Polygon",
+            "coordinates":[
+               [
+                  [
+                     -80.540771, -6.380812
+                  ],
+                  [
+                     -80.255127, -6.075011
+                  ],
+                  [
+                     -79.881592, -5.692516
+                  ],
+                  [
+                     -79.595947, -6.020385
+                  ],
+                  [
+                     -79.519043, -6.369894
+                  ],
+                  [
+                     -79.376221, -6.860985
+                  ],
+                  [
+                     -79.782715, -7.002764
+                  ],
+                  [
+                     -80.156250, -6.599131
+                  ]
+               ]
+            ]
+         },
+         "properties":{
+            "_id":"2",
+            "_rev":"2-f85fd93d692df4c3290ecd3e8e87ea3e",
+            "type":"Feature",
+            "properties":{
+               "GISNAME":"Lambayeque",
+               "descripcion":"<div id='mensaje'>Testing...</div>",
+               "imagen2011":"Lambayeque1.png",
+               "imagen2010":"Lambayeque2.png",
+               "imagen2009":"none.png"
+            }
+         }
+      },
+      {
+         "type":"Feature",
+         "geometry":{
+            "type":"Polygon",
+            "coordinates":[
+               [
+                  [
+                     -79.277344, -7.678329
+                  ],
+                  [
+                     -78.859863, -7.667441
+                  ],
+                  [
+                     -78.475342, -7.645665
+                  ],
+                  [
+                     -78.222656, -7.852499
+                  ],
+                  [
+                     -77.750244, -7.547656
+                  ],
+                  [
+                     -77.904053, -7.089990
+                  ],
+                  [
+                     -77.794189, -7.079088
+                  ],
+                  [
+                     -77.508545, -7.819847
+                  ],
+                  [
+                     -77.640381, -8.015716
+                  ],
+                  [
+                     -77.958984, -8.037473
+                  ],
+                  [
+                     -78.541260, -8.711359
+                  ],
+                  [
+                     -78.947754, -8.167993
+                  ]
+               ]
+            ]
+         },
+         "properties":{
+            "_id":"3",
+            "_rev":"2-2e18293d04fcd28b0008dcd411731033",
+            "type":"Feature",
+            "properties":{
+               "GISNAME":"La Libertad",
+               "descripcion":"<div id='mensaje'>Testing...</div>",
+               "imagen2011":"Libertad1.png",
+               "imagen2010":"Libertad2.png",
+               "imagen2009":"none.png"
+            }
+         }
+      }
+   ]
+}

@@ -1,0 +1,15 @@
+{% extends "Docentes/base_intranet.html" %}
+{% load i18n adminmedia %}
+
+{% block branding %}<h1 id="site-name"></h1>{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block title %}{% trans 'Intranet de Docentes UDL' %}{% endblock %}
+
+{% block content %}
+
+<h2 align="center">Intranet de Docentes UDL</h2>
+<div align="center"><IMG src="{% admin_media_prefix %}img/admin/logo_login.jpg" align="center" border="0"></div>
+{% endblock %}

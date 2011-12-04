@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+{% block userlinks %}{% endblock %}
+{% block branding %}{% endblock %}
+{% block breadcrumbs %}{% endblock %}
+
+{% block title %}{% trans 'Password change' %}{% endblock %}
+
+{% block content %}
+
+<h1>{% trans 'Password change' %}</h1>
+
+<p>{% trans "Contraseña cambiada con exito" %}, <a href="../login/">Login</a></p>
+
+{% endblock %}

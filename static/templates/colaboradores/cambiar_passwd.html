@@ -1,0 +1,60 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_modify adminmedia %}
+{% block extrahead %}{{ block.super }}
+<script type="text/javascript" src="../../../jsi18n/"></script>
+{{ media }}
+<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" />
+{% endblock %}
+{% block userlinks %}{% endblock %}
+{% block branding %}
+<h1 id="site-name">{% trans 'Intranet Docentes UDL' %}</h1>
+{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+     <a href="../profile/">{% trans "Atras" %}</a> &rsaquo;
+</div>
+{% endblock %}
+
+{% block title %}{% trans 'Password change' %}{% endblock %}
+
+{% block content %}
+
+<p>{{ user|escape }}, {% trans "Please enter your old password, for security's sake, and then enter your new password twice so we can verify you typed it in correctly." %}</p>
+
+<form action="" method="post">{% csrf_token %}
+
+{{ form.Usuario.errors }}
+<p class="aligned wide">{{ form.Usuario }}</p>
+
+<h2>{% trans 'Cambiar Contraseña'%}</h2>
+<fieldset class="module aligned">
+<div class="form-row">
+	<div class="field-box">
+        {{ form.OldPassword.errors }}
+	{{ form.OldPassword.label_tag }}:
+        {{ form.OldPassword }}
+	</div>
+</div>
+<div class="form-row">
+	<div class="field-box">
+        {{ form.NewPassword.errors }}
+	{{ form.NewPassword.label_tag }}:
+        {{ form.NewPassword }}
+	</div>
+</div>
+<div class="form-row">
+	<div class="field-box">
+        {{ form.RepeatPassword.errors }}
+	{{ form.RepeatPassword.label_tag }}:
+        {{ form.RepeatPassword }}
+	</div>
+</div>
+</fieldset>
+<div class="submit-row">
+<input class="default" type="submit" value="{% trans 'Change my password' %}" />
+</div>
+
+
+</form>
+
+{% endblock %}

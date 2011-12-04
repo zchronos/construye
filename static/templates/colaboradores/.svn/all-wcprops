@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes
+END
+index_intranet_docente.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes/index_intranet_docente.html
+END
+base_intranet.html
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes/base_intranet.html
+END
+body_docente.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes/body_docente.html
+END
+mensaje.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes/mensaje.html
+END
+menu_docente.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/UDL/!svn/ver/23/trunk/UDL/Templates/Docentes/menu_docente.html
+END

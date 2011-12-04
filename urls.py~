@@ -1,0 +1,19 @@
+from django.conf.urls.defaults import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
+from local_apps.authentication import *
+from colaboradores.views import *
+
+urlpatterns = patterns('',
+    url(r'^$', 'construye.home.index', name='index'),
+    url(r'^admin/', include(admin.site.urls)),
+    # urls para el login
+    (r'^colaborador/login/$', login_colaborador),
+    (r'^colaborador/logout/$', logout_colaborador),
+    (r'^colaborador/cambiar_passwd/$', cambiar_passwd),
+    (r'^colaborador/profile/$', index_colaborador),
+    # mapas
+    (r'^colaborador/mapas/ver_mapa/$', ver_mapa),
+    (r'^colaborador/mapas/sugerencia/$', ver_sugerencia),
+    (r'^colaborador/mapas/nueva_sugerencia/$', escribir_textfile),
+)

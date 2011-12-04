@@ -1,0 +1,4 @@
+point	title	description	icon
+-12.213865,-76.766968	Proyecto de Irrigacion	Este es un proyecto de irrigacion
+-6.768602,-79.790955	Proyecto de Irrigacion	Descripcion de mi proyecto de irrigacion
+42,-71	my purple title	my purple description<br/>is great.	http://www.openlayers.org/api/img/zoom-world-mini.png
